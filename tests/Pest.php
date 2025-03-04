@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 use Oltrematica\RoleLite\Tests\TestCase;
 use Oltrematica\RoleLite\Tests\UnitTestCase;
 
