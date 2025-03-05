@@ -13,18 +13,18 @@
     "illuminate/contracts": "^10.0|^11.0|^12.0"
   },
   "require-dev": {
-    "orchestra/testbench": "^10.0",
+    "driftingly/rector-laravel": "^2.0",
+    "larastan/larastan": "^3.0",
+    "laravel/pint": "^1.21",
     "nunomaduro/collision": "^8.6",
+    "orchestra/testbench": "^10.0",
     "pestphp/pest": "^3.7",
     "pestphp/pest-plugin-arch": "^3.0",
     "pestphp/pest-plugin-laravel": "^3.1",
-    "phpstan/extension-installer": "^1.4",
     "phpstan/phpstan-deprecation-rules": "^2.0",
-    "laravel/pint": "^1.21",
+    "phpstan/phpstan-mockery": "^2.0",
     "phpstan/phpstan-phpunit": "^2.0",
-    "larastan/larastan": "^3.0",
-    "rector/rector": "^2.0",
-    "driftingly/rector-laravel": "^2.0"
+    "rector/rector": "^2.0"
   },
   "license": "MIT",
   "autoload": {
@@ -65,8 +65,7 @@
   "config": {
     "sort-packages": true,
     "allow-plugins": {
-      "pestphp/pest-plugin": true,
-      "phpstan/extension-installer": true
+      "pestphp/pest-plugin": true
     }
   },
   "minimum-stability": "dev",
