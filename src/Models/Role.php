@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Oltrematica\RoleLite\Services\ConfigService;
 
+/**
+ * @property int $id
+ * @property string $name
+ */
 class Role extends Model
 {
     protected $fillable = [
