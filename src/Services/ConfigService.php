@@ -1,24 +1,37 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Oltrematica\RoleLite\Services;
 
 readonly class ConfigService
 {
     public static function getRolesTable(): string
     {
-        return config('oltrematica-role-lite.table_names.roles', 'roles');
+        /** @var string $table */
+        $table = config('oltrematica-role-lite.table_names.role_user', 'role_user');
+        return $table;
     }
 
     public static function getRoleUserTable(): string
     {
-        return config('oltrematica-role-lite.table_names.role_user', 'role_user');
+        /** @var string $table */
+        $table = config('oltrematica-role-lite.table_names.role_user', 'role_user');
+        return $table;
+
     }
 
     public static function getUserTable(): string
     {
-        return config('oltrematica-role-lite.table_names.users', 'users');
+        /** @var string $table */
+        $table = config('oltrematica-role-lite.table_names.users', 'users');
+        return $table;
     }
 
-
-
+    public static function getUserModel(): string
+    {
+        /** @var string $model */
+        $model = config('oltrematica-role-lite.model_names.user', config('auth.providers.users.model', 'App\Models\User'));
+        return $model;
+    }
 }

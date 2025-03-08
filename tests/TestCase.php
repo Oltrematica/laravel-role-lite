@@ -15,11 +15,11 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Oltrematica\\RoleLite\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName): string => 'Oltrematica\\RoleLite\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
-    public function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app): void
     {
         config()->set('database.default', 'testing');
 

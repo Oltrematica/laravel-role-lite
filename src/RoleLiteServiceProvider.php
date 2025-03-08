@@ -27,7 +27,6 @@ class RoleLiteServiceProvider extends LaravelServiceProvider
     {
         return database_path('migrations/'.date('Y_m_d_His').'_'.str_replace('.stub', '', $name));
     }
-    public function register()
-    {
-    }
+
+    public function register() {}
 }

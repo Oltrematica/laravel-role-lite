@@ -7,10 +7,11 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Oltrematica\RoleLite\Services\ConfigService as RoleLiteConfigService;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
-        Schema::create(RoleLiteConfigService::getRoleUserTable(), function (Blueprint $table) {
+        Schema::create(RoleLiteConfigService::getRoleUserTable(), function (Blueprint $table): void {
             $table->id();
 
             $table->foreignId('role_id')->constrained(

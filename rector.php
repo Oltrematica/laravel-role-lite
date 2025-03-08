@@ -8,10 +8,9 @@ use RectorLaravel\Set\LaravelSetList;
 
 return RectorConfig::configure()
     ->withPaths([
-        __DIR__.'/app',
+        __DIR__.'/src',
         __DIR__.'/config',
         __DIR__.'/database',
-        __DIR__.'/public',
         __DIR__.'/tests',
     ])
     ->withSkip([

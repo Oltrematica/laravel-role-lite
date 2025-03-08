@@ -6,11 +6,14 @@ parameters:
 
     paths:
         - src/
+        - tests/
 
     level: max
 
 #    ignoreErrors:
 #        - '#PHPDoc tag @var#'
 #
-#    excludePaths:
-#        - ./*/*/FileToBeExcluded.php
+    excludePaths:
+        - ./tests/ArchTest.php
+        - ./tests/TestCase.php
+        - ./tests/UnitTestCase.php

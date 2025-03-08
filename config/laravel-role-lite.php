@@ -40,4 +40,24 @@ return [
         'role_user' => 'role_user',
     ],
 
+    /*
+     |--------------------------------------------------------------------------
+     | Model Names
+     |--------------------------------------------------------------------------
+     |
+     | Here you can specify the model names
+    */
+    'model_names' => [
+        /*
+        |--------------------------------------------------------------------------
+        | User Model
+        |--------------------------------------------------------------------------
+        |
+        | If you want to use a custom user model, you can specify it here.
+        | Otherwise, the model will be automatically detected with
+        | `config('auth.providers.users.model')`
+        |
+       */
+        'user' => null,
+    ],
 ];
