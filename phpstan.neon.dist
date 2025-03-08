@@ -10,9 +10,11 @@ parameters:
 
     level: max
 
-#    ignoreErrors:
-#        - '#PHPDoc tag @var#'
-#
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - '#Trait Oltrematica\\RoleLite\\Trait\\HasRoles is used zero times and is not analysed.#'
+
     excludePaths:
         - ./tests/ArchTest.php
         - ./tests/TestCase.php

@@ -19,7 +19,7 @@ class RoleLiteServiceProvider extends LaravelServiceProvider
         $this->publishes([
             __DIR__.'/../database/migrations/create_roles_table.php' => $this->getMigrationFileName('_1_create_roles_table.php'),
             __DIR__.'/../database/migrations/create_role_model_table.php' => $this->getMigrationFileName('_2_create_role_model_table.php'),
-        ], 'permission-migrations');
+        ], 'oltrematica-role-lite-migrations');
 
     }
 

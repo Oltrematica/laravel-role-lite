@@ -9,7 +9,7 @@ readonly class ConfigService
     public static function getRolesTable(): string
     {
         /** @var string $table */
-        $table = config('oltrematica-role-lite.table_names.role_user', 'role_user');
+        $table = config('oltrematica-role-lite.table_names.roles', 'role_user');
 
         return $table;
     }
