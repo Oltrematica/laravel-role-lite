@@ -147,6 +147,17 @@ if ($user->hasAllRoles([Roles::ADMIN, Roles::EDITOR])) {
     // User has both admin and editor roles
 }
 ```
+
+## Events
+
+The package fires events when roles are assigned or removed from users. You can listen to these events in your
+application to perform additional actions.
+
+- `UserRoleCreated`: Fired when a role is assigned to a user.
+- `UserRoleDeleted`: Fired when a role is removed from a user.
+- `UserRoleUpdated`: Fired when a role is updated for a user.
+
+
 ## Code Quality
 
 The project includes automated tests and tools for code quality control.
