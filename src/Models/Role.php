@@ -6,7 +6,6 @@ namespace Oltrematica\RoleLite\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Foundation\Auth\User;
 use Oltrematica\RoleLite\Services\ConfigService;
 
 class Role extends Model

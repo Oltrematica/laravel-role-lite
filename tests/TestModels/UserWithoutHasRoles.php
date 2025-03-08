@@ -6,7 +6,4 @@ namespace Oltrematica\RoleLite\Tests\TestModels;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class UserWithoutHasRoles extends Authenticatable
-{
-
-}
+class UserWithoutHasRoles extends Authenticatable {}

@@ -10,6 +10,7 @@ readonly class ConfigService
     {
         /** @var string $table */
         $table = config('oltrematica-role-lite.table_names.role_user', 'role_user');
+
         return $table;
     }
 
@@ -17,6 +18,7 @@ readonly class ConfigService
     {
         /** @var string $table */
         $table = config('oltrematica-role-lite.table_names.role_user', 'role_user');
+
         return $table;
 
     }
@@ -25,6 +27,7 @@ readonly class ConfigService
     {
         /** @var string $table */
         $table = config('oltrematica-role-lite.table_names.users', 'users');
+
         return $table;
     }
 
@@ -32,6 +35,7 @@ readonly class ConfigService
     {
         /** @var string $model */
         $model = config('oltrematica-role-lite.model_names.user', config('auth.providers.users.model', 'App\Models\User'));
+
         return $model;
     }
 }
