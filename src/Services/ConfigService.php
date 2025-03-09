@@ -33,8 +33,15 @@ readonly class ConfigService
 
     public static function getUserModel(): string
     {
+        if (! config('oltrematica-role-lite.model_names.user')) {
+            /** @var string $config */
+            $config = config('auth.providers.users.model', 'App\Models\User');
+
+            return $config;
+        }
+
         /** @var string $model */
-        $model = config('oltrematica-role-lite.model_names.user', config('auth.providers.users.model', 'App\Models\User'));
+        $model = config('oltrematica-role-lite.model_names.user', 'App\Models\User');
 
         return $model;
     }
