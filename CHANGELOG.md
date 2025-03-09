@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-role-init` will be documented in this file.
 
+## Fix user model retrieval in ConfigService to handle missing configuration - 2025-03-09
+
+### What's Changed
+
+* Fix user model retrieval in ConfigService to handle missing configuration by @mirchaemanuel in https://github.com/Oltrematica/laravel-role-lite/pull/2
+
+**Full Changelog**: https://github.com/Oltrematica/laravel-role-lite/compare/v1.0.1...v1.0.2
+
 ## Firing events when a role is assigned or detached - 2025-03-08
 
 ### What's Changed
