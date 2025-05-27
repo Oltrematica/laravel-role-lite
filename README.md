@@ -148,6 +148,22 @@ if ($user->hasAllRoles([Roles::ADMIN, Roles::EDITOR])) {
 }
 ```
 
+Check if a user has no roles
+
+```php
+if ($user->hasNoRoles()) {
+    // User has no roles
+}
+```
+
+Check if a user has at least one role
+
+```php
+if ($user->hasSomeRoles()) {
+    // User has at least one role
+}
+```
+
 ## Events
 
 The package fires events when roles are assigned or removed from users. You can listen to these events in your
@@ -198,9 +214,4 @@ composer test
 
 Feel free to contribute to this package by submitting issues or pull requests. We welcome any improvements or bug fixes
 you may have.
-
-
-
-
-
 
