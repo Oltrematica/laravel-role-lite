@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-role-init` will be documented in this file.
 
+## v1.0.4 - 2026-03-18
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/Oltrematica/laravel-role-lite/pull/6
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/Oltrematica/laravel-role-lite/pull/10
+* feat: Add Laravel 13 support by @mirchaemanuel in https://github.com/Oltrematica/laravel-role-lite/pull/12
+
+**Full Changelog**: https://github.com/Oltrematica/laravel-role-lite/compare/v1.0.3...v1.0.4
+
 ## v1.0.3 - 2025-05-27
 
 ### What's Changed
