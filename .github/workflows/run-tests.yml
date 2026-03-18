@@ -24,6 +24,18 @@ jobs:
           - laravel: 11.*
             testbench: 9.*
             carbon: ^2.63
+          - laravel: 13.*
+            testbench: 11.*
+            carbon: ^3.0
+            php: 8.4
+            os: ubuntu-latest
+            stability: prefer-stable
+          - laravel: 13.*
+            testbench: 11.*
+            carbon: ^3.0
+            php: 8.4
+            os: windows-latest
+            stability: prefer-stable
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
