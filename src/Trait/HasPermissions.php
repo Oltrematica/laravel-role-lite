@@ -8,6 +8,7 @@ use BackedEnum;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Oltrematica\RoleLite\Models\Permission;
+use Oltrematica\RoleLite\Models\Role;
 use Oltrematica\RoleLite\Services\PermissionService;
 
 /**
@@ -66,12 +67,16 @@ trait HasPermissions
         return app(PermissionService::class)->userCan($this, $modelClass, $action);
     }
 
-    public function givePermissionTo(string|BackedEnum $permission): self
+    /**
+     * Grant a permission to the model via a specific role, or the first role if none specified.
+     * Creates the permission if it doesn't exist.
+     */
+    public function givePermissionTo(string|BackedEnum $permission, ?Role $role = null): self
     {
         $permissionName = $this->normalizePermission($permission);
         $permissionModel = Permission::firstOrCreate(['name' => $permissionName]);
 
-        $role = $this->roles()->first();
+        $role ??= $this->roles()->first();
         if ($role) {
             $role->grantPermission($permissionModel);
         }
@@ -79,13 +84,16 @@ trait HasPermissions
         return $this;
     }
 
-    public function revokePermissionTo(string|BackedEnum $permission): self
+    /**
+     * Revoke a permission from the model via a specific role, or the first role if none specified.
+     */
+    public function revokePermissionTo(string|BackedEnum $permission, ?Role $role = null): self
     {
         $permissionName = $this->normalizePermission($permission);
         $permissionModel = Permission::query()->where('name', $permissionName)->first();
 
         if ($permissionModel) {
-            $role = $this->roles()->first();
+            $role ??= $this->roles()->first();
             if ($role) {
                 $role->revokePermission($permissionModel);
             }
@@ -108,11 +116,10 @@ trait HasPermissions
 
     private function normalizePermission(string|BackedEnum $permission): string
     {
-        if (($permission instanceof BackedEnum) && is_string($value = $permission->value)) {
-            return $value;
+        if ($permission instanceof BackedEnum) {
+            return (string) $permission->value;
         }
 
-        /** @var string $permission */
         return $permission;
     }
 }
