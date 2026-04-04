@@ -31,6 +31,21 @@ class TestCase extends Orchestra
         });
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        $schema->create('permissions', function (Blueprint $table): void {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('description')->nullable();
+            $table->timestamps();
+        });
+
+        $schema->create('role_permission', function (Blueprint $table): void {
+            $table->id();
+            $table->foreignId('role_id')->constrained('roles')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('permission_id')->constrained('permissions')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
+            $table->unique(['role_id', 'permission_id']);
+        });
     }
 
     public function getEnvironmentSetUp($app): void
