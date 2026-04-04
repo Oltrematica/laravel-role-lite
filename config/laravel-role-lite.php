@@ -38,6 +38,81 @@ return [
         |
         */
         'role_user' => 'role_user',
+
+        /*
+        |--------------------------------------------------------------------------
+        | Permissions Table Name
+        |--------------------------------------------------------------------------
+        |
+        | This is the name of the table that will be used to store the permissions.
+        | You can change it to whatever you like.
+        |
+        */
+        'permissions' => 'permissions',
+
+        /*
+        |--------------------------------------------------------------------------
+        | RolePermission pivot Table Name
+        |--------------------------------------------------------------------------
+        |
+        | This is the name of the pivot table that will be used to store the
+        | relationship between roles and permissions.
+        | You can change it to whatever you like.
+        |
+        */
+        'role_permission' => 'role_permission',
+    ],
+
+    /*
+     |--------------------------------------------------------------------------
+     | Permissions Settings
+     |--------------------------------------------------------------------------
+     |
+     | Here you can configure the permissions system behaviour.
+    */
+    'permissions' => [
+        /*
+        |--------------------------------------------------------------------------
+        | Cache TTL
+        |--------------------------------------------------------------------------
+        |
+        | The time-to-live in seconds for the permissions cache.
+        | Set to 0 to disable caching.
+        |
+        */
+        'cache_ttl' => 3600,
+
+        /*
+        |--------------------------------------------------------------------------
+        | Cache Prefix
+        |--------------------------------------------------------------------------
+        |
+        | The prefix used for all permissions cache keys.
+        |
+        */
+        'cache_prefix' => 'role_lite',
+
+        /*
+        |--------------------------------------------------------------------------
+        | Default Actions
+        |--------------------------------------------------------------------------
+        |
+        | The default set of CRUD actions available for permissions.
+        | These follow Laravel policy naming conventions.
+        |
+        */
+        'default_actions' => [
+            'viewAny',
+            'view',
+            'create',
+            'update',
+            'delete',
+            'deleteAny',
+            'restore',
+            'restoreAny',
+            'forceDelete',
+            'forceDeleteAny',
+        ],
     ],
 
     /*
