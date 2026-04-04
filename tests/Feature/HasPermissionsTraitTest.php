@@ -5,8 +5,8 @@ declare(strict_types=1);
 use Oltrematica\RoleLite\Models\Permission;
 use Oltrematica\RoleLite\Models\Role;
 use Oltrematica\RoleLite\Services\PermissionService;
-use Oltrematica\RoleLite\Tests\TestModels\User;
 use Oltrematica\RoleLite\Tests\TestModels\TestPermissionEnum;
+use Oltrematica\RoleLite\Tests\TestModels\User;
 
 beforeEach(function (): void {
     $this->user = User::query()->create(['name' => 'Test User', 'email' => 'test@test.com']);

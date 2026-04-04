@@ -13,6 +13,14 @@ parameters:
 
     ignoreErrors:
         - '#Trait Oltrematica\\RoleLite\\Trait\\HasRoles is used zero times and is not analysed.#'
+        - '#Trait Oltrematica\\RoleLite\\Trait\\HasPermissions is used zero times and is not analysed.#'
+        - '#Trait Oltrematica\\RoleLite\\Trait\\ChecksPermissions is used zero times and is not analysed.#'
+        -
+            message: '#should return Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<.+> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany<.+>#'
+            identifier: return.type
+        -
+            message: '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model::\$roles#'
+            identifier: property.notFound
 
     excludePaths:
         - ./tests/ArchTest.php

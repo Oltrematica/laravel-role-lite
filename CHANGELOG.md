@@ -2,6 +2,22 @@
 
 All notable changes to `laravel-role-init` will be documented in this file.
 
+## Unreleased
+
+### Added
+
+- **Optional Permission System** — fully opt-in, zero impact if not used
+  - `Permission` model with `model.action` format helpers (`getModelSlug`, `buildPermissionName`, `findOrCreateForModel`, `createForModel`)
+  - `PermissionRole` pivot model with event dispatching
+  - `PermissionService` with two-tier caching (in-memory + Laravel cache driver) and configurable TTL/prefix
+  - `HasPermissions` trait for User models: `hasPermissionTo()`, `hasAnyPermission()`, `hasAllPermissions()`, `canDo()`, `givePermissionTo()`, `revokePermissionTo()`, `getAllPermissions()`
+  - `ChecksPermissions` trait for Laravel Policies with auto model class derivation from policy name
+  - `PermissionGranted` and `PermissionRevoked` events (consistent with existing role events)
+  - Role model expanded with `permissions()`, `hasPermission()`, `grantPermission()`, `revokePermission()`, `syncPermissions()`
+  - Separate migration publish tag: `oltrematica-role-lite-permission-migrations`
+  - Configurable table names (`permissions`, `role_permission`), cache TTL, cache prefix, and default actions
+  - BackedEnum support for permission names (consistent with role enum support)
+
 ## v1.0.4 - 2026-03-18
 
 ### What's Changed

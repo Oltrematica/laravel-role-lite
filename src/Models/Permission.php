@@ -59,7 +59,8 @@ class Permission extends Model
     {
         $actions ??= ConfigService::getDefaultActions();
 
-        $permissions = new Collection();
+        $permissions = new Collection;
+        /** @var string $action */
         foreach ($actions as $action) {
             $permissions->push(self::findOrCreateForModel($modelClass, $action));
         }
@@ -68,7 +69,7 @@ class Permission extends Model
     }
 
     /**
-     * @return BelongsToMany<Role, covariant $this>
+     * @return BelongsToMany<Role, $this>
      */
     public function roles(): BelongsToMany
     {

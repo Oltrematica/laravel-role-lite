@@ -6,8 +6,6 @@ namespace Oltrematica\RoleLite\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Oltrematica\RoleLite\Models\Permission;
-use Oltrematica\RoleLite\Models\PermissionRole;
 use Oltrematica\RoleLite\Services\ConfigService;
 
 /**
@@ -30,7 +28,7 @@ class Role extends Model
     }
 
     /**
-     * @return BelongsToMany<Model, covariant $this>
+     * @return BelongsToMany<Model, $this>
      */
     public function users(): BelongsToMany
     {
@@ -45,7 +43,7 @@ class Role extends Model
     }
 
     /**
-     * @return BelongsToMany<Permission, covariant $this>
+     * @return BelongsToMany<Permission, $this>
      */
     public function permissions(): BelongsToMany
     {

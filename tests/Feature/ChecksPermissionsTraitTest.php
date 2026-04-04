@@ -28,14 +28,14 @@ beforeEach(function (): void {
 
 describe('getModelClass', function (): void {
     test('derives model class from policy name', function (): void {
-        $policy = new CustomerPolicy();
+        $policy = new CustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'getModelClass');
 
         expect($reflection->invoke($policy))->toBe('Customer');
     });
 
     test('handles multi-word policy names', function (): void {
-        $policy = new ServiceVisitPolicy();
+        $policy = new ServiceVisitPolicy;
         $reflection = new ReflectionMethod($policy, 'getModelClass');
 
         expect($reflection->invoke($policy))->toBe('ServiceVisit');
@@ -48,14 +48,14 @@ describe('checkPermission', function (): void {
         $this->role->grantPermission($permission);
         app(PermissionService::class)->clearCache();
 
-        $policy = new CustomerPolicy();
+        $policy = new CustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'checkPermission');
 
         expect($reflection->invoke($policy, $this->user, 'view'))->toBeTrue();
     });
 
     test('returns false when user lacks permission', function (): void {
-        $policy = new CustomerPolicy();
+        $policy = new CustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'checkPermission');
 
         expect($reflection->invoke($policy, $this->user, 'delete'))->toBeFalse();
@@ -66,7 +66,7 @@ describe('checkPermission', function (): void {
         $this->role->grantPermission($permission);
         app(PermissionService::class)->clearCache();
 
-        $policy = new CustomerPolicy();
+        $policy = new CustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'checkPermission');
 
         expect($reflection->invoke($policy, $this->user, 'create', 'Order'))->toBeTrue();
@@ -75,14 +75,14 @@ describe('checkPermission', function (): void {
 
 describe('getPermissionName', function (): void {
     test('builds permission name from action and derived model', function (): void {
-        $policy = new CustomerPolicy();
+        $policy = new CustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'getPermissionName');
 
         expect($reflection->invoke($policy, 'view_any'))->toBe('customer.view_any');
     });
 
     test('builds permission name from action and custom model', function (): void {
-        $policy = new CustomerPolicy();
+        $policy = new CustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'getPermissionName');
 
         expect($reflection->invoke($policy, 'create', 'ServiceVisit'))->toBe('service_visit.create');

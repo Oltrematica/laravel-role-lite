@@ -63,9 +63,12 @@ readonly class ConfigService
         return $prefix;
     }
 
+    /**
+     * @return list<string>
+     */
     public static function getDefaultActions(): array
     {
-        /** @var array<string> $actions */
+        /** @var list<string> $actions */
         $actions = config('oltrematica-role-lite.permissions.default_actions', [
             'view_any',
             'view',

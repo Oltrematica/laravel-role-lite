@@ -35,7 +35,10 @@ class PermissionService
     {
         $permissions = $this->getCachedPermissions();
 
-        foreach ($user->roles as $role) {
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Role> $roles */
+        $roles = $user->roles;
+
+        foreach ($roles as $role) {
             if (isset($permissions[$role->id][$permissionName])) {
                 return true;
             }

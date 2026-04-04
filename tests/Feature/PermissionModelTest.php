@@ -24,7 +24,7 @@ describe('Permission model', function (): void {
     test('name must be unique', function (): void {
         Permission::query()->create(['name' => 'user.view']);
         Permission::query()->create(['name' => 'user.view']);
-    })->throws(\Illuminate\Database\QueryException::class);
+    })->throws(Illuminate\Database\QueryException::class);
 
     test('roles relationship returns related roles', function (): void {
         $permission = Permission::query()->create(['name' => 'user.view']);
