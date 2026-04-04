@@ -64,15 +64,15 @@ describe('ConfigService::getDefaultActions()', function (): void {
         $actions = ConfigService::getDefaultActions();
 
         expect($actions)->toContain('view')
-            ->toContain('viewAny')
+            ->toContain('view_any')
             ->toContain('create')
             ->toContain('update')
             ->toContain('delete')
-            ->toContain('deleteAny')
+            ->toContain('delete_any')
             ->toContain('restore')
-            ->toContain('restoreAny')
-            ->toContain('forceDelete')
-            ->toContain('forceDeleteAny');
+            ->toContain('restore_any')
+            ->toContain('force_delete')
+            ->toContain('force_delete_any');
     });
 
     test('returns configured default actions when set', function (): void {

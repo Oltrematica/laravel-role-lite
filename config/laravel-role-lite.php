@@ -102,16 +102,16 @@ return [
         |
         */
         'default_actions' => [
-            'viewAny',
+            'view_any',
             'view',
             'create',
             'update',
             'delete',
-            'deleteAny',
             'restore',
-            'restoreAny',
-            'forceDelete',
-            'forceDeleteAny',
+            'force_delete',
+            'delete_any',
+            'force_delete_any',
+            'restore_any',
         ],
     ],
 
