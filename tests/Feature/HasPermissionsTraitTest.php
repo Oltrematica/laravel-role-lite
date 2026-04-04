@@ -113,6 +113,18 @@ describe('givePermissionTo (via role)', function (): void {
         app(PermissionService::class)->clearCache();
         expect($this->user->hasPermissionTo('post.update'))->toBeTrue();
     });
+
+    test('grants permission to a specific role when provided', function (): void {
+        $adminRole = Role::query()->create(['name' => 'admin']);
+        $this->user->assignRole('admin');
+
+        $this->user->givePermissionTo('admin.action', $adminRole);
+
+        app(PermissionService::class)->clearCache();
+        expect($this->user->hasPermissionTo('admin.action'))->toBeTrue()
+            ->and($adminRole->hasPermission('admin.action'))->toBeTrue()
+            ->and($this->role->hasPermission('admin.action'))->toBeFalse();
+    });
 });
 
 describe('revokePermissionTo (via role)', function (): void {

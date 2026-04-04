@@ -70,9 +70,8 @@ class Role extends Model
         if (! $this->permissions()->where('permission_id', $permission->id)->exists()) {
             $this->permissions()->attach($permission->id);
             $this->unsetRelation('permissions');
+            app(PermissionService::class)->clearCache();
         }
-
-        app(PermissionService::class)->clearCache();
     }
 
     /**

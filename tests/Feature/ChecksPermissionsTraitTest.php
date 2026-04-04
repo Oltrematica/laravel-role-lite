@@ -8,13 +8,13 @@ use Oltrematica\RoleLite\Services\PermissionService;
 use Oltrematica\RoleLite\Tests\TestModels\User;
 use Oltrematica\RoleLite\Trait\ChecksPermissions;
 
-// Create fake policy classes for testing
-class CustomerPolicy
+// Create fake policy classes for testing (prefixed to avoid collisions)
+class FakeCustomerPolicy
 {
     use ChecksPermissions;
 }
 
-class ServiceVisitPolicy
+class FakeServiceVisitPolicy
 {
     use ChecksPermissions;
 }
@@ -28,34 +28,34 @@ beforeEach(function (): void {
 
 describe('getModelClass', function (): void {
     test('derives model class from policy name', function (): void {
-        $policy = new CustomerPolicy;
+        $policy = new FakeCustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'getModelClass');
 
-        expect($reflection->invoke($policy))->toBe('Customer');
+        expect($reflection->invoke($policy))->toBe('FakeCustomer');
     });
 
     test('handles multi-word policy names', function (): void {
-        $policy = new ServiceVisitPolicy;
+        $policy = new FakeServiceVisitPolicy;
         $reflection = new ReflectionMethod($policy, 'getModelClass');
 
-        expect($reflection->invoke($policy))->toBe('ServiceVisit');
+        expect($reflection->invoke($policy))->toBe('FakeServiceVisit');
     });
 });
 
 describe('checkPermission', function (): void {
     test('returns true when user has permission for derived model', function (): void {
-        $permission = Permission::query()->create(['name' => 'customer.view']);
+        $permission = Permission::query()->create(['name' => 'fake_customer.view']);
         $this->role->grantPermission($permission);
         app(PermissionService::class)->clearCache();
 
-        $policy = new CustomerPolicy;
+        $policy = new FakeCustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'checkPermission');
 
         expect($reflection->invoke($policy, $this->user, 'view'))->toBeTrue();
     });
 
     test('returns false when user lacks permission', function (): void {
-        $policy = new CustomerPolicy;
+        $policy = new FakeCustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'checkPermission');
 
         expect($reflection->invoke($policy, $this->user, 'delete'))->toBeFalse();
@@ -66,7 +66,7 @@ describe('checkPermission', function (): void {
         $this->role->grantPermission($permission);
         app(PermissionService::class)->clearCache();
 
-        $policy = new CustomerPolicy;
+        $policy = new FakeCustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'checkPermission');
 
         expect($reflection->invoke($policy, $this->user, 'create', 'Order'))->toBeTrue();
@@ -75,14 +75,14 @@ describe('checkPermission', function (): void {
 
 describe('getPermissionName', function (): void {
     test('builds permission name from action and derived model', function (): void {
-        $policy = new CustomerPolicy;
+        $policy = new FakeCustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'getPermissionName');
 
-        expect($reflection->invoke($policy, 'view_any'))->toBe('customer.view_any');
+        expect($reflection->invoke($policy, 'view_any'))->toBe('fake_customer.view_any');
     });
 
     test('builds permission name from action and custom model', function (): void {
-        $policy = new CustomerPolicy;
+        $policy = new FakeCustomerPolicy;
         $reflection = new ReflectionMethod($policy, 'getPermissionName');
 
         expect($reflection->invoke($policy, 'create', 'ServiceVisit'))->toBe('service_visit.create');
