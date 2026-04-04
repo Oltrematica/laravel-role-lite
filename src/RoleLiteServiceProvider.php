@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Oltrematica\RoleLite;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use Oltrematica\RoleLite\Services\PermissionService;
 
 class RoleLiteServiceProvider extends LaravelServiceProvider
 {
@@ -21,6 +22,11 @@ class RoleLiteServiceProvider extends LaravelServiceProvider
             __DIR__.'/../database/migrations/create_role_model_table.php' => $this->getMigrationFileName('_2_create_role_model_table.php'),
         ], 'oltrematica-role-lite-migrations');
 
+        $this->publishes([
+            __DIR__.'/../database/migrations/permissions/create_permissions_table.php' => $this->getMigrationFileName('_3_create_permissions_table.php'),
+            __DIR__.'/../database/migrations/permissions/create_role_permission_table.php' => $this->getMigrationFileName('_4_create_role_permission_table.php'),
+        ], 'oltrematica-role-lite-permission-migrations');
+
     }
 
     public function getMigrationFileName(string $name): string
@@ -28,5 +34,8 @@ class RoleLiteServiceProvider extends LaravelServiceProvider
         return database_path('migrations/'.date('Y_m_d_His').'_'.str_replace('.stub', '', $name));
     }
 
-    public function register() {}
+    public function register(): void
+    {
+        $this->app->singleton(PermissionService::class);
+    }
 }

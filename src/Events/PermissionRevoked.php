@@ -6,11 +6,11 @@ namespace Oltrematica\RoleLite\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Oltrematica\RoleLite\Models\RoleUser;
+use Oltrematica\RoleLite\Models\PermissionRole;
 
-class UserRoleCreated
+class PermissionRevoked
 {
     use Dispatchable, SerializesModels;
 
-    public function __construct(public readonly RoleUser $roleUser) {}
+    public function __construct(public readonly PermissionRole $permissionRole) {}
 }

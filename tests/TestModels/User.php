@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Oltrematica\RoleLite\Tests\TestModels;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Oltrematica\RoleLite\Trait\HasPermissions;
 use Oltrematica\RoleLite\Trait\HasRoles;
 
 class User extends Authenticatable
 {
+    use HasPermissions;
     use HasRoles;
 
     /**
