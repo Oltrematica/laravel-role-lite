@@ -2,6 +2,22 @@
 
 All notable changes to `laravel-role-init` will be documented in this file.
 
+## v2.0.1 - 2026-04-04
+
+### What's Changed
+
+#### CI & Infrastructure
+
+- Upgrade all GitHub Actions to Node.js 24 runtime (Node.js 20 deprecated June 2026):
+  - `actions/checkout` v4 → v6
+  - `stefanzweifel/git-auto-commit-action` v5 → v7
+  - `ramsey/composer-install` v3 → v4
+  - `dependabot/fetch-metadata` v2.5.0 → v3.0.0
+  
+- Upgrade to Pest 4 for full Laravel 13 test support
+
+**Full Changelog**: https://github.com/Oltrematica/laravel-role-lite/compare/v2.0.0...v2.0.1
+
 ## v2.0.0 - 2026-04-04
 
 ### What's Changed
