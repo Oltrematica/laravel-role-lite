@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Oltrematica\RoleLite;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
+use Oltrematica\RoleLite\Services\PermissionService;
 
 class RoleLiteServiceProvider extends LaravelServiceProvider
 {
@@ -33,5 +34,8 @@ class RoleLiteServiceProvider extends LaravelServiceProvider
         return database_path('migrations/'.date('Y_m_d_His').'_'.str_replace('.stub', '', $name));
     }
 
-    public function register() {}
+    public function register(): void
+    {
+        $this->app->singleton(PermissionService::class);
+    }
 }
