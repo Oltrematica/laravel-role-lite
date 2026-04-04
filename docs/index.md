@@ -8,10 +8,10 @@ nav_order: 1
 
 **Lightweight role & permission management for Laravel**
 
+![GitHub Tests Action Status](https://github.com/Oltrematica/laravel-role-lite/actions/workflows/run-tests.yml/badge.svg)
+![GitHub PhpStan Action Status](https://github.com/Oltrematica/laravel-role-lite/actions/workflows/phpstan.yml/badge.svg)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/oltrematica/laravel-role-lite.svg?style=flat-square)](https://packagist.org/packages/oltrematica/laravel-role-lite)
-[![PHP Version](https://img.shields.io/badge/PHP-8.3%2B-blue?style=flat-square)](https://php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-10%20%7C%2011%20%7C%2012%20%7C%2013-red?style=flat-square)](https://laravel.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Total Downloads](https://img.shields.io/packagist/dt/oltrematica/laravel-role-lite.svg?style=flat-square)](https://packagist.org/packages/oltrematica/laravel-role-lite)
 
 ---
 

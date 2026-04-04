@@ -65,12 +65,10 @@ class PermissionService
         $hasPermission = $role->permissions()->where('permission_id', $permission->id)->exists();
 
         if ($hasPermission) {
-            $role->permissions()->detach($permission->id);
+            $role->revokePermission($permission);
         } else {
-            $role->permissions()->attach($permission->id);
+            $role->grantPermission($permission);
         }
-
-        $this->clearCache();
 
         return ! $hasPermission;
     }

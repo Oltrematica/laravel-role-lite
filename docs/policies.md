@@ -37,7 +37,7 @@ The trait strips `Policy` from the end of the class name and snake_cases the res
 | `ServiceVisitPolicy` | `ServiceVisit` | `service_visit.view_any` |
 | `CustomerOrderPolicy` | `CustomerOrder` | `customer_order.update` |
 
-The derivation uses `Str::replace('Policy', '', class_basename(static::class))` — no namespace is involved.
+The derivation uses `Str::replace('Policy', '', class_basename(static::class))` — only the short class name is used, **not** the fully qualified class name (FQCN). This means `App\Policies\PostPolicy` and `Domain\Policies\PostPolicy` both resolve to `Post`. The slug is then produced by `Str::snake()` when building the permission name (e.g., `Post` → `post`, `ServiceVisit` → `service_visit`).
 
 ---
 
