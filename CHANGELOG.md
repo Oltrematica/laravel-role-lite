@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-role-init` will be documented in this file.
 
+## v2.0.0 - 2026-04-04
+
+### What's Changed
+
+* feat: add optional permission system by @mirchaemanuel in https://github.com/Oltrematica/laravel-role-lite/pull/14
+
+**Full Changelog**: https://github.com/Oltrematica/laravel-role-lite/compare/v1.0.4...v2.0.0
+
 ## Unreleased
 
 ### Added
@@ -17,6 +25,7 @@ All notable changes to `laravel-role-init` will be documented in this file.
   - Separate migration publish tag: `oltrematica-role-lite-permission-migrations`
   - Configurable table names (`permissions`, `role_permission`), cache TTL, cache prefix, and default actions
   - BackedEnum support for permission names (consistent with role enum support)
+  
 
 ## v1.0.4 - 2026-03-18
 
