@@ -1,0 +1,16 @@
+remote_theme: pages-themes/cayman@v0.2.0
+
+title: "Laravel Role Lite"
+description: "Lightweight role & permission management for Laravel"
+
+baseurl: /laravel-role-lite
+
+plugins:
+  - jekyll-remote-theme
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
